@@ -64,6 +64,18 @@ export class GuessSection extends React.Component {
         >
           Spock
         </button>
+        <label>
+          Best Of
+        <select
+            name="bestOf"
+            id="bestOf"
+          >
+            <option value={1}>1</option>
+            <option value={3}>3</option>
+            <option value={5}>5</option>
+            <option value={7}>7</option>
+          </select>
+        </label>
       </form>
     );
   }
