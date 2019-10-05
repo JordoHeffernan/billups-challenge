@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   bestOf: 1,
   timesWrong: 0,
   timesRight: 0,
-  guess: "",
+  humanGuess: "",
   computerGuess: "",
   tie: false,
   helpOpen: false,
@@ -34,8 +34,8 @@ export default (state = INITIAL_STATE, action) => {
         loading: { $set: true }
       });
     case GET_GUESS_SUCCESS:
-      let computerWord = computerGuessToWords(action.payload.random_number)
-      let result = rockPaperScissors(state.guess, computerWord);
+      let computerWord = action.guess.name;
+      let result = rockPaperScissors(state.humanGuess, computerWord);
       console.log("computer word :", computerWord, "result :", result)
       if (result === 1) {
         return update(state, {
@@ -62,18 +62,19 @@ export default (state = INITIAL_STATE, action) => {
     case GET_GUESS_FAILURE:
       return update(state, {
         loading: { $set: false },
-        error: { $set: action.payload.error || "There was an issue retrieving the computer's guess" }
+        error: { $set: action.error || "There was an issue retrieving the computer's guess" }
       });
     case HANDLE_INPUT:
+      console.log(action.payload)
       return update(state, {
-        guess: { $set: action.payload }
+        humanGuess: { $set: action.payload }
       });
     case RESTART_GAME:
       return update(state, {
         bestOf: { $set: 1 },
         timesWrong: { $set: 0 },
         timesRight: { $set: 0 },
-        guess: { $set: "" },
+        humanGuess: { $set: "" },
         helpOpen: { $set: false },
         error: { $set: null },
         loading: { $set: false },

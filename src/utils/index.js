@@ -20,24 +20,6 @@ export const rightOrWrong = lastGuessCorrect => {
   }
 }
 
-export const computerGuessToWords = num => {
-  switch (num) {
-    case num >= 1 && num <= 20:
-      return "Rock"
-    case num >= 21 && num <= 40:
-      return "Paper"
-    case num >= 41 && num <= 60:
-      return "Scissors"
-    case num >= 61 && num <= 80:
-      return "Lizard"
-    case num >= 81 && num <= 100:
-      return "Spock"
-    default:
-      return ""
-  }
-
-}
-
 export const rockPaperScissors = (humanGuess, computerGuess) => {
   switch (humanGuess) {
     case "rock":
