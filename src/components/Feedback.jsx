@@ -2,28 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import '../styles/Feedback.css';
+import { winOrLose, rightOrWrong } from "../utils/index"
 
 export const Feedback = props => {
-  let winOrLose;
-  let fakeProps = { timesRight: 1, timesWrong: 0, bestOf: 1, result: "Right" }
-  // let { timesRight, timesWrong, bestOf, result } = this.props
-  let { timesRight, timesWrong, bestOf, result } = fakeProps
+  let fakeProps = { timesRight: 0, timesWrong: 0, bestOf: 1, lastGuessCorrect: null }
+  // let { timesRight, timesWrong, bestOf, lastGuessCorrect } = this.props
+  let { timesRight, timesWrong, bestOf, lastGuessCorrect } = fakeProps
 
-  if (timesRight > bestOf / 2) {
-    winOrLose = "Win"
-  }
-  if (timesWrong > bestOf / 2) {
-    winOrLose = "Lose"
-  }
+  let status = winOrLose(timesRight, timesWrong, bestOf)
+  let result = rightOrWrong(lastGuessCorrect)
   return (
-    <h2
+    <div
       id="feedback"
       role="status"
       aria-live="assertive"
       aria-atomic="true"
     >
-      {result} {winOrLose}
-    </h2>
+      <h2>
+        Win or Lose: {status}
+      </h2>
+      <h2>
+        Result of Last Guess: {result}
+      </h2>
+    </div>
   );
 }
 
