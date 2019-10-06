@@ -108,17 +108,18 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/choice', (req, res) => {
-  console.log('get choice')
-  let choice = options[Math.floor((Math.random() * 5))];
-  res.header("Access-Control-Allow-Origin", "*");
-  res.setHeader('Content-Type', 'application/json');
-  return res.status(200).json(choice);
-});
+// This is an old route used for testing logic on 
+// frontend that is now performed on the server
+// 
+//app.get('/choice', (req, res) => {
+//   let choice = options[Math.floor((Math.random() * 5))];
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.setHeader('Content-Type', 'application/json');
+//   return res.status(200).json(choice);
+// });
+//
 
 app.post('/play', (req, res) => {
-  console.log('post play')
-  console.log(req.body)
   let computer = options[Math.floor((Math.random() * 5))];
   computer = computer.name;
   let { player } = req.body;

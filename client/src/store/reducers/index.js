@@ -1,5 +1,5 @@
 import update from "immutability-helper";
-import { rockPaperScissors, winOrLose } from "../../utils/index"
+import { winOrLose } from "../../utils/index"
 
 import {
   RESTART_GAME,
@@ -69,7 +69,6 @@ export default (state = INITIAL_STATE, action) => {
         })
       }
     case GET_GUESS_FAILURE:
-      console.log(action.error)
       return update(state, {
         loading: { $set: false },
         error: { $set: action.error || "There was an issue retrieving the computer's guess" }

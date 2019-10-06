@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import '../styles/Feedback.css';
 
 export const Feedback = props => {
-  // let fakeProps = { timesRight: 0, timesWrong: 0, bestOf: 1, lastGuessCorrect: null }
-  // let { timesRight, timesWrong, bestOf, lastGuessCorrect } = fakeProps
-  let { timesRight, timesWrong, bestOf, computerGuess, lastGuessResult, loading, winStatus } = props.state
+  let { computerGuess, lastGuessResult, loading, winStatus } = props.state
 
   return (
     <div

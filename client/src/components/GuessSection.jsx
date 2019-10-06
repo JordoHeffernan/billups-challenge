@@ -26,7 +26,6 @@ export class GuessSection extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     if (!this.props.state.humanGuess) {
-      console.log("make a pick!")
       this.setState({ noPick: true })
       return;
     }
@@ -39,7 +38,7 @@ export class GuessSection extends React.Component {
       <div>
         {helpOpen && <HowToPlay />}
         {!helpOpen && (winStatus === "Make a guess") &&
-          < form onSubmit={e => this.onSubmit(e)} className="guessSection" >
+          <form onSubmit={e => this.onSubmit(e)} className="guessSection">
             <label>
               Best Of
             </label>
@@ -63,7 +62,7 @@ export class GuessSection extends React.Component {
               onClick={e => this.onChange(e)}
             >
               Rock
-        </button>
+            </button>
             <button
               type="button"
               name="paper"
@@ -73,7 +72,7 @@ export class GuessSection extends React.Component {
               onClick={e => this.onChange(e)}
             >
               Paper
-        </button>
+            </button>
             <button
               type="button"
               name="scissors"
@@ -83,7 +82,7 @@ export class GuessSection extends React.Component {
               onClick={e => this.onChange(e)}
             >
               Scissors
-        </button>
+            </button>
             <button
               type="button"
               name="lizard"
@@ -93,7 +92,7 @@ export class GuessSection extends React.Component {
               onClick={e => this.onChange(e)}
             >
               Lizard
-        </button>
+            </button>
             <button
               type="button"
               name="spock"
@@ -103,12 +102,11 @@ export class GuessSection extends React.Component {
               onClick={e => this.onChange(e)}
             >
               Spock
-        </button>
-
+            </button>
             <button type="submit" name="submit" id="submit" >
               Submit Guess
-          </button>
-          </form >}
+            </button>
+          </form>}
       </div>
     );
   }

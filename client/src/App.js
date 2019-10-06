@@ -4,7 +4,6 @@ import './styles/App.css';
 import Header from "./components/Header"
 import GuessSection from "./components/GuessSection"
 import Feedback from "./components/Feedback"
-import Scoreboard from './components/Scoreboard';
 
 function App() {
   return (

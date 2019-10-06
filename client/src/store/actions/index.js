@@ -39,7 +39,6 @@ export const getGuessFailure = error => ({
 
 export const getGuess = playerChoice => dispatch => {
   dispatch(getGuessRequest());
-  // return fetch('https://codechallenge.boohma.com/choice')
   let body = { player: playerChoice };
   return fetch('http://localhost:8080/play', {
     method: 'post',
@@ -56,7 +55,6 @@ export const getGuess = playerChoice => dispatch => {
       return res.json();
     })
     .then(response => {
-      console.log(response)
       return dispatch(getGuessSuccess(response));
     })
     .catch(err => {
