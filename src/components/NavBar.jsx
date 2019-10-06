@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { restartGame, toggleHelp } from '../store/actions';
 
-
 import '../styles/NavBar.css';
 
 
