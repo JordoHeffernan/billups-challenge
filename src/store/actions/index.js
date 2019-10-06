@@ -11,8 +11,14 @@ export const toggleHelp = () => ({
 });
 
 export const HANDLE_INPUT = 'HANDLE_INPUT';
-export const handleInput = ({ target: { value } }) => ({
+export const handleInput = value => ({
   type: HANDLE_INPUT,
+  payload: value
+});
+
+export const SET_BEST_OF = 'SET_BEST_OF';
+export const setBestOf = value => ({
+  type: SET_BEST_OF,
   payload: value
 });
 

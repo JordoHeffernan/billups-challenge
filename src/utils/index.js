@@ -6,19 +6,8 @@ export const winOrLose = (timesRight, timesWrong, bestOf) => {
   if (timesWrong > bestOf / 2) {
     return "You lose!"
   }
-  return ""
+  return "Make a guess."
 };
-
-export const rightOrWrong = lastGuessCorrect => {
-  switch (lastGuessCorrect) {
-    case true:
-      return "Right!"
-    case false:
-      return "Wrong!"
-    default:
-      return "Make A Guess!"
-  }
-}
 
 export const rockPaperScissors = (humanGuess, computerGuess) => {
   switch (humanGuess) {

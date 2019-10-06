@@ -2,15 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import '../styles/Feedback.css';
-import { winOrLose, rightOrWrong } from "../utils/index"
+import { winOrLose } from "../utils/index"
 
 export const Feedback = props => {
-  let fakeProps = { timesRight: 0, timesWrong: 0, bestOf: 1, lastGuessCorrect: null }
-  // let { timesRight, timesWrong, bestOf, lastGuessCorrect } = this.props
-  let { timesRight, timesWrong, bestOf, lastGuessCorrect } = fakeProps
-
+  // let fakeProps = { timesRight: 0, timesWrong: 0, bestOf: 1, lastGuessCorrect: null }
+  // let { timesRight, timesWrong, bestOf, lastGuessCorrect } = fakeProps
+  let { timesRight, timesWrong, bestOf, computerGuess, lastGuessResult, loading } = props.state
   let status = winOrLose(timesRight, timesWrong, bestOf)
-  let result = rightOrWrong(lastGuessCorrect)
   return (
     <div
       id="feedback"
@@ -18,22 +16,18 @@ export const Feedback = props => {
       aria-live="assertive"
       aria-atomic="true"
     >
-      <h2>
-        Win or Lose: {status}
-      </h2>
-      <h2>
-        Result of Last Guess: {result}
-      </h2>
+      {!loading && computerGuess && <h2>
+        Computer guessed {computerGuess[0].toUpperCase() + computerGuess.substring(1)} you {lastGuessResult}
+      </h2>}
+      {status && <h2>
+        {status}
+      </h2>}
     </div>
   );
 }
 
-// const mapStateToProps = state => ({
-//   timesRight: state.timesRight,
-//   timesWrong: state.timesWrong,
-//   bestOf: state.bestOf,
-//   result: state.result
-// })
+const mapStateToProps = state => ({
+  state: state
+})
 
-export default Feedback
-// export default connect(mapStateToProps)(Feedback)
+export default connect(mapStateToProps)(Feedback)
