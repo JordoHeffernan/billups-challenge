@@ -2,11 +2,10 @@ nav {
   position: relative;
   height: 10%;
   padding: 0 1em;
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 }
 
 .navButton {
-  text-transform: uppercase;
   font-weight: 700;
   font-size: 1em;
   width: 10.75rem;

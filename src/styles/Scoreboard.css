@@ -1,0 +1,40 @@
+/* Create a highlight keyframe */
+@keyframes feedback-highlight {
+  0% {
+    background: #9b1228;
+  }
+  100% {
+    background: #cc324b;
+  }
+}
+
+#scoreboard {
+  margin: 0.8rem auto;
+  display: inline-block;
+  padding: 0.4em 0.4em;
+  width: 9em;
+  background: #50597b;
+  border: 3px solid grey;
+  border-radius: 6px;
+  -webkit-box-shadow: 25px 25px 25px 0px rgba(11,15,24,1);
+  -moz-box-shadow: 25px 25px 25px 0px rgba(11,15,24,1);
+  box-shadow: 25px 25px 25px 0px rgba(11,15,24,1);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1em;
+  color: #fff; 
+}
+
+#scoreboard h2 {
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+
+#scoreboard h3{
+  font-size: 1em;
+  margin: .3em;
+}
+
+#feedback:target {
+  animation: feedback-highlight 3s;
+}

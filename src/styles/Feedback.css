@@ -21,6 +21,10 @@
   border-radius: 15px 15px 0 0;
 }
 
+#feedback h2 {
+  font-size: 1.3em;
+}
+
 #feedback:target {
   animation: feedback-highlight 3s;
 }

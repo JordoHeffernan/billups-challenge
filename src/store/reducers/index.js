@@ -18,7 +18,7 @@ const INITIAL_STATE = {
   humanGuess: "",
   computerGuess: "",
   lastGuessResult: "",
-  winStatus: "Make a guess.",
+  winStatus: "Make a guess",
   helpOpen: false,
   error: null,
   loading: false
@@ -27,12 +27,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case HANDLE_INPUT:
-      console.log(action.payload)
       return update(state, {
         humanGuess: { $set: action.payload }
       });
     case SET_BEST_OF:
-      console.log(action.payload)
       return update(state, {
         bestOf: { $set: action.payload }
       });
@@ -45,31 +43,28 @@ export default (state = INITIAL_STATE, action) => {
         loading: { $set: true }
       });
     case GET_GUESS_SUCCESS:
-      let computerWord = action.payload.name;
-      console.log(action)
-      let result = rockPaperScissors(state.humanGuess, computerWord);
-      console.log("computer word :", computerWord, "result :", result)
-      if (result === 1) {
+      let { result, computer } = action.payload
+      if (result === "win") {
         return update(state, {
           loading: { $set: false },
           timesRight: { $set: state.timesRight += 1 },
-          computerGuess: { $set: computerWord },
+          computerGuess: { $set: computer },
           lastGuessResult: { $set: "were right" },
           winStatus: { $set: winOrLose(state.timesRight, state.timesWrong, state.bestOf) }
         })
       }
-      if (result === -1) {
+      if (result === "lose") {
         return update(state, {
           loading: { $set: false },
           timesWrong: { $set: state.timesWrong += 1 },
-          computerGuess: { $set: computerWord },
+          computerGuess: { $set: computer },
           lastGuessResult: { $set: "were wrong" },
           winStatus: { $set: winOrLose(state.timesRight, state.timesWrong, state.bestOf) }
         })
       } else {
         return update(state, {
           loading: { $set: false },
-          computerGuess: { $set: computerWord },
+          computerGuess: { $set: computer },
           lastGuessResult: { $set: "tied" },
         })
       }
@@ -88,7 +83,7 @@ export default (state = INITIAL_STATE, action) => {
         humanGuess: { $set: "" },
         computerGuess: { $set: "" },
         lastGuessResult: { $set: "" },
-        winStatus: { $set: "Make a guess." },
+        winStatus: { $set: "Make a guess" },
         helpOpen: { $set: false },
         error: { $set: null },
         loading: { $set: false },

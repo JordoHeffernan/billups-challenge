@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Scoreboard from "./Scoreboard"
 
 import { restartGame, toggleHelp } from '../store/actions';
 
@@ -27,6 +28,7 @@ export class NavBar extends React.Component {
         >
           How To Play
         </button>
+        <Scoreboard />
         <button
           type="button"
           name="newGame"

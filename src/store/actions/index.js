@@ -37,17 +37,27 @@ export const getGuessFailure = error => ({
   error
 });
 
-export const getGuess = () => dispatch => {
+export const getGuess = playerChoice => dispatch => {
   dispatch(getGuessRequest());
-  return fetch('https://codechallenge.boohma.com/choice')
+  // return fetch('https://codechallenge.boohma.com/choice')
+  let body = { player: playerChoice };
+  return fetch('http://localhost:8080/play', {
+    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body),
+  })
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
       return res.json();
     })
-    .then(guess => {
-      return dispatch(getGuessSuccess(guess));
+    .then(response => {
+      console.log(response)
+      return dispatch(getGuessSuccess(response));
     })
     .catch(err => {
       return dispatch(getGuessFailure(err));

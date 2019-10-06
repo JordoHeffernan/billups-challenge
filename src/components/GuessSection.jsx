@@ -20,9 +20,7 @@ export class GuessSection extends React.Component {
   }
   onChange(e) {
     e.preventDefault();
-
     const value = e.target.value;
-    console.log(value)
     this.props.dispatch(handleInput(value));
   }
   onSubmit(e) {
@@ -32,7 +30,7 @@ export class GuessSection extends React.Component {
       this.setState({ noPick: true })
       return;
     }
-    this.props.dispatch(getGuess());
+    this.props.dispatch(getGuess(this.props.state.humanGuess));
   }
 
   render() {
@@ -40,7 +38,7 @@ export class GuessSection extends React.Component {
     return (
       <div>
         {helpOpen && <HowToPlay />}
-        {!helpOpen && (winStatus === "Make a guess.") &&
+        {!helpOpen && (winStatus === "Make a guess") &&
           < form onSubmit={e => this.onSubmit(e)} className="guessSection" >
             <label>
               Best Of
