@@ -1,5 +1,5 @@
 import update from "immutability-helper";
-import { rockPaperScissors, computerGuessToWords } from "../../utils/index"
+import { rockPaperScissors, winOrLose } from "../../utils/index"
 
 import {
   RESTART_GAME,
@@ -18,13 +18,13 @@ const INITIAL_STATE = {
   humanGuess: "",
   computerGuess: "",
   lastGuessResult: "",
+  winStatus: "Make a guess.",
   helpOpen: false,
   error: null,
   loading: false
 };
 
 export default (state = INITIAL_STATE, action) => {
-
   switch (action.type) {
     case HANDLE_INPUT:
       console.log(action.payload)
@@ -55,6 +55,7 @@ export default (state = INITIAL_STATE, action) => {
           timesRight: { $set: state.timesRight += 1 },
           computerGuess: { $set: computerWord },
           lastGuessResult: { $set: "were right" },
+          winStatus: { $set: winOrLose(state.timesRight, state.timesWrong, state.bestOf) }
         })
       }
       if (result === -1) {
@@ -63,6 +64,7 @@ export default (state = INITIAL_STATE, action) => {
           timesWrong: { $set: state.timesWrong += 1 },
           computerGuess: { $set: computerWord },
           lastGuessResult: { $set: "were wrong" },
+          winStatus: { $set: winOrLose(state.timesRight, state.timesWrong, state.bestOf) }
         })
       } else {
         return update(state, {
@@ -86,6 +88,7 @@ export default (state = INITIAL_STATE, action) => {
         humanGuess: { $set: "" },
         computerGuess: { $set: "" },
         lastGuessResult: { $set: "" },
+        winStatus: { $set: "Make a guess." },
         helpOpen: { $set: false },
         error: { $set: null },
         loading: { $set: false },

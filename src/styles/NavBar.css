@@ -1,0 +1,36 @@
+nav {
+  position: relative;
+  height: 10%;
+  padding: 0 1em;
+  margin-bottom: 4em;
+}
+
+.navButton {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1em;
+  width: 10.75rem;
+  height: 2.125rem;
+}
+
+.navButton:first-child {
+  float: left;
+}
+
+.navButton {
+  float: right;
+}
+
+/* Create a highlight keyframe */
+@keyframes section-highlight {
+  0% {
+    background: #9b1228;
+  }
+  100% {
+    background: none;
+  }
+}
+
+button:hover {
+  cursor: pointer;
+}

@@ -27,7 +27,7 @@ export class NavBar extends React.Component {
           onClick={() => this.onToggle()}
         >
           How To Play
-    </button>
+        </button>
         <button
           type="button"
           name="newGame"
@@ -36,7 +36,7 @@ export class NavBar extends React.Component {
           onClick={() => this.onRestart()}
         >
           New Game
-    </button>
+        </button>
       </nav>
     );
   }
