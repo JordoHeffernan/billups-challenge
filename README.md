@@ -8,7 +8,7 @@ It is a fun more advanced version of Rock, Paper, Scissors
 - From your command line, navigate to the cloned directory and run the following commands
 - `npm install`
 - `cd client && npm install && cd ..`
-- `npm start`
+- `npm run-script dev`
 
 ## Resources: 
 - http://www.samkass.com/theories/RPSSL.html
