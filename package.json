@@ -1,0 +1,27 @@
+{
+  "name": "lizard-spock",
+  "version": "1.0.0",
+  "description": "A fun game and coding challenge",
+  "main": "servers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "client": "cd client && npm build && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordoHeffernan/lizard-spock.git"
+  },
+  "keywords": [],
+  "author": "Jordan Heffernan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JordoHeffernan/lizard-spock/issues"
+  },
+  "homepage": "https://github.com/JordoHeffernan/lizard-spock#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "body-parser": "^1.19.0"
+  }
+}
